@@ -22,7 +22,7 @@ default-enabled: false
 
 | 占位符 | 含义 | 默认 / 示例 |
 |---|---|---|
-| `<项目>` | Traffic Compass 项目根目录 | `~/Documents/Playground/traffic-compass` |
+| `<项目>` | Traffic Compass 项目根目录 | `/path/to/your/traffic-compass` |
 | `<服务地址>` | 本地 API 地址 | `http://127.0.0.1:8900` |
 | `<输出目录>` | 提取结果保存位置 | 由用户指定 |
 
