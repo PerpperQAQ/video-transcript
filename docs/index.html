@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#ff6335" />
+    <meta
+      name="description"
+      content="把抖音分享链接变成可保存、可引用的 Markdown 笔记。了解 Video Transcript 开源 Skill 的用途，并跟随完整教程配置本地服务、百炼 API Key 和抖音登录。"
+    />
+    <title>Video Transcript — 好内容，留下来。</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">跳到主要内容</a>
+    <header class="header">
+      <a class="brand" href="#" aria-label="Video Transcript 首页"
+        ><span class="brand-mark" aria-hidden="true">vt<span>↗</span></span
+        ><span>VIDEO<br />TRANSCRIPT</span></a
+      >
+      <nav aria-label="主导航">
+        <a href="#how">工作原理</a><a href="#example">看看结果</a
+        ><a href="#setup">安装配置</a><a href="#faq">常见问题</a>
+      </nav>
+      <a
+        class="github-link"
+        href="https://github.com/PerpperQAQ/video-transcript"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-main">
+          <div class="hero-copy">
+            <p class="eyebrow">视频的下一站，是你的知识库。</p>
+            <h1 id="hero-title">
+              好内容，<br /><span class="title-last"
+                >留下来<span class="fullstop">。</span></span
+              >
+            </h1>
+            <p class="hero-description">
+              刷到值得记住的视频？<br />把链接交给
+              Agent，让观点、案例和原话，<br
+                class="desktop-break"
+              />变成一份可以反复阅读的笔记。
+            </p>
+            <div class="hero-actions">
+              <a class="button button-dark" href="#setup"
+                >开始配置 <span aria-hidden="true">↗</span></a
+              ><a class="text-link" href="#example"
+                >先看一份成品 <span aria-hidden="true">↓</span></a
+              >
+            </div>
+            <p class="hero-note">开源 Agent Skill · 抖音链接 → Markdown</p>
+          </div>
+          <div class="hero-art" aria-label="从视频到笔记的概念示意">
+            <div class="art-top">
+              <span>CAPTURE THE IDEA.</span
+              ><span class="art-star" aria-hidden="true">✳</span>
+            </div>
+            <div class="video-strip">
+              <div class="play-disc" aria-hidden="true">▶</div>
+              <div>
+                <span class="small-label">一条抖音分享链接</span
+                ><strong>值得记住的，不止这一刻。</strong>
+              </div>
+            </div>
+            <div class="sound-wave" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+              ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+              ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+              ><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="art-arrow" aria-hidden="true">↘</div>
+            <div class="paper">
+              <div class="paper-head">
+                <span>你的下一份笔记</span><span>.md</span>
+              </div>
+              <p class="paper-title">让收藏，<br />真正变成收获。</p>
+              <div class="paper-highlight">核心观点 / 案例拆解 / 原文金句</div>
+              <div class="paper-lines" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </div>
+              <div class="paper-bottom">
+                <span>总结在上 · 完整原文在下</span
+                ><span aria-hidden="true">↗</span>
+              </div>
+            </div>
+            <span class="art-caption">流程示意 · 在你的 Agent 中运行</span>
+          </div>
+        </div>
+        <div class="hero-baseline">
+          <span>少一点反复回看。</span><strong>多一点真正留存。</strong
+          ><a href="#how" aria-label="了解视频如何变成笔记">↓</a>
+        </div>
+      </section>
+      <section id="how" class="section how">
+        <div class="section-heading">
+          <p class="eyebrow">从「看过」到「用得上」</p>
+          <h2>一条链接，<br />走完这四步。</h2>
+          <p class="section-intro">
+            你负责发现好内容。Skill 把提取、理解和归档串起来。<br />点选每一步，看看是谁在完成这件事。
+          </p>
+        </div>
+        <div class="workflow" role="group" aria-label="工作流程">
+          <button class="flow-step active" data-flow="0" aria-pressed="true">
+            <span>01</span><strong>发来链接</strong><small>你 → Agent</small
+            ><b aria-hidden="true">↗</b></button
+          ><button class="flow-step" data-flow="1" aria-pressed="false">
+            <span>02</span><strong>提取文案</strong
+            ><small>Traffic Compass + 百炼</small
+            ><b aria-hidden="true">↗</b></button
+          ><button class="flow-step" data-flow="2" aria-pressed="false">
+            <span>03</span><strong>读懂全文</strong
+            ><small>Agent + 总结规范</small><b aria-hidden="true">↗</b></button
+          ><button class="flow-step" data-flow="3" aria-pressed="false">
+            <span>04</span><strong>留下笔记</strong
+            ><small>Markdown + 完整原文</small><b aria-hidden="true">↗</b>
+          </button>
+        </div>
+        <div class="flow-explainer" aria-live="polite">
+          <span id="flow-number">01 / 发起</span>
+          <p id="flow-description">
+            把抖音分享链接或整段分享文案发给
+            Agent，再说「帮我提取这个视频的文案」。链接与明确的提取意图一起，才会触发
+            Skill。
+          </p>
+        </div>
+        <div class="boundary">
+          <strong>先认识一下它的搭档。</strong>
+          <p>
+            Video Transcript 是一份给 Agent 的工作说明。提取视频需要你本机运行的
+            <a
+              href="https://github.com/code-wahaha/traffic-compass"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Traffic Compass ↗</a
+            >；语音识别使用阿里云百炼，结构化总结由你正在使用的 Agent 完成。
+          </p>
+        </div>
+      </section>
+      <section id="example" class="example section">
+        <div class="example-copy">
+          <p class="eyebrow">不是又一个收藏夹</p>
+          <h2>留下观点。<br />也留下<br /><span>它的来处。</span></h2>
+          <p>
+            总结里有观点、案例和结论。<br />往下翻，还有未经删减的转写原文。<br />想引用时，不用再凭印象回忆。
+          </p>
+          <ul class="benefits">
+            <li><span>↗</span> 保留人名、数字、场景等案例细节</li>
+            <li><span>↗</span> 摘录原话，并交代它的语境</li>
+            <li><span>↗</span> 按日期命名，保存为 Markdown</li>
+          </ul>
+          <button class="button button-orange" id="download-example">
+            下载示例笔记 <span aria-hidden="true">↓</span>
+          </button>
+          <p class="demo-disclaimer">
+            右侧为虚构短文示例，仅演示文件结构。<br />正式长视频总结会更详细，通常摘录
+            5–10 条金句。
+          </p>
+        </div>
+        <div class="document-demo">
+          <div class="document-toolbar">
+            <span>一份笔记的两面</span><span class="file-type">MARKDOWN</span>
+          </div>
+          <div class="doc-tabs" role="tablist" aria-label="示例笔记内容">
+            <button
+              id="tab-summary"
+              role="tab"
+              aria-selected="true"
+              aria-controls="doc-content"
+              data-doc="summary"
+            >
+              结构化总结</button
+            ><button
+              id="tab-original"
+              role="tab"
+              aria-selected="false"
+              aria-controls="doc-content"
+              tabindex="-1"
+              data-doc="original"
+            >
+              完整原文</button
+            ><button
+              id="tab-markdown"
+              role="tab"
+              aria-selected="false"
+              aria-controls="doc-content"
+              tabindex="-1"
+              data-doc="markdown"
+            >
+              Markdown
+            </button>
+          </div>
+          <div
+            id="doc-content"
+            class="document-body"
+            role="tabpanel"
+            aria-labelledby="tab-summary"
+            tabindex="0"
+          ></div>
+          <div class="document-footer">
+            <span>虚构示例 · 非真实提取结果</span><span>SUMMARY + SOURCE</span>
+          </div>
+        </div>
+      </section>
+      <section id="setup" class="setup section">
+        <div class="setup-heading">
+          <div>
+            <p class="eyebrow">第一次用？从这里开始。</p>
+            <h2>把准备工作，<br />拆成小步骤。</h2>
+          </div>
+          <p>
+            先让本地服务跑起来，再安装 Skill。<br />每一步都有操作、命令和成功标志。<br />完成勾选仅记录在当前浏览器。
+          </p>
+        </div>
+        <div class="setup-topbar">
+          <label for="os-select"
+            >我的电脑是
+            <select id="os-select">
+              <option value="mac">macOS</option>
+              <option value="windows">Windows · PowerShell</option>
+              <option value="linux">Linux · Ubuntu / Debian</option>
+            </select></label
+          ><span id="setup-progress" aria-live="polite">已完成 0 / 7 步</span
+          ><button class="reset-progress" id="reset-progress">重置进度</button>
+        </div>
+        <div class="guide-layout">
+          <nav id="step-nav" class="step-nav" aria-label="配置步骤"></nav>
+          <div class="guide-panel">
+            <div class="guide-content" id="guide-content" tabindex="-1"></div>
+            <div class="guide-controls">
+              <label class="completed-label"
+                ><input type="checkbox" id="step-complete" />
+                <span>我已完成这一步</span></label
+              >
+              <div>
+                <button class="button-small" id="step-prev">上一步</button
+                ><button class="button-small next" id="step-next">
+                  下一步 ↗
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="setup-source">
+          教程依据
+          <a
+            href="https://github.com/PerpperQAQ/video-transcript/blob/main/references/setup.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Skill 配置文档</a
+          >
+          与
+          <a
+            href="https://github.com/code-wahaha/traffic-compass"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Traffic Compass 源码</a
+          >
+          整理，核对日期：2026-10-12。网页不接收你的 API Key、Cookie
+          或视频链接。
+        </p>
+      </section>
+      <section class="first-run section" id="first-run">
+        <div>
+          <p class="eyebrow">准备好了，就说这句话。</p>
+          <h2>复制链接。<br />把剩下的交给 Agent。</h2>
+        </div>
+        <div class="prompt-demo">
+          <div class="prompt-header">
+            <span>发给已启用 Skill 的 Agent</span
+            ><span aria-hidden="true">↗</span>
+          </div>
+          <p id="prompt-text">
+            帮我提取这个视频的文案，并生成结构化总结：<br /><span
+              >[粘贴你的抖音分享链接]</span
+            >
+          </p>
+          <button id="copy-prompt" class="button-small">复制这句话</button>
+        </div>
+        <p class="first-run-note">
+          提取通常需要 30–120 秒，实际受视频长度和服务状态影响。<br />收到的
+          Markdown 文件，上半是总结，下半是完整转写原文。
+        </p>
+      </section>
+      <section id="faq" class="faq section">
+        <div class="faq-heading">
+          <div>
+            <p class="eyebrow">卡住了？我们一项项看。</p>
+            <h2>常见问题，<br />就地解决。</h2>
+          </div>
+          <label class="search-label" for="faq-search"
+            >搜索问题<input
+              id="faq-search"
+              type="search"
+              placeholder="试试 Cookie、密钥、服务…"
+          /></label>
+        </div>
+        <div id="faq-list"></div>
+        <p id="faq-empty" hidden>
+          暂时没有匹配的问题。换个关键词，或查看
+          <a
+            href="https://github.com/PerpperQAQ/video-transcript/blob/main/references/fallback.md"
+            >完整排错文档 ↗</a
+          >。
+        </p>
+        <div class="faq-bottom">
+          <span>遇到了新问题？</span
+          ><a
+            href="https://github.com/PerpperQAQ/video-transcript/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+            >在 GitHub 提交 Issue ↗</a
+          >
+        </div>
+      </section>
+      <section class="closing">
+        <p>让值得保存的内容，有一个去处。</p>
+        <a
+          href="https://github.com/PerpperQAQ/video-transcript"
+          target="_blank"
+          rel="noopener noreferrer"
+          >MAKE IT<br /><span>YOURS.</span
+          ><span class="closing-arrow" aria-hidden="true">↗</span></a
+        >
+      </section>
+    </main>
+    <footer>
+      <a class="footer-brand" href="#">VIDEO TRANSCRIPT</a>
+      <p>
+        由 <a href="https://github.com/PerpperQAQ">PerpperQAQ</a> 开源 · MIT
+        License<br />视频提取基于
+        <a href="https://github.com/code-wahaha/traffic-compass"
+          >Traffic Compass</a
+        >
+      </p>
+      <a
+        href="https://github.com/PerpperQAQ/video-transcript/blob/main/SKILL.md"
+        >阅读 Skill 源文件 ↗</a
+      >
+    </footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <noscript
+      ><div class="noscript">
+        配置向导和示例切换需要 JavaScript。你也可以直接阅读
+        <a
+          href="https://github.com/PerpperQAQ/video-transcript/blob/main/references/setup.md"
+          >完整配置文档</a
+        >。
+      </div></noscript
+    >
+  </body>
+</html>

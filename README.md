@@ -1,5 +1,7 @@
 # Video Transcript
 
+**[访问展示网站与完整配置教程 →](https://perpperqaq.github.io/video-transcript/)**
+
 > 把抖音分享链接，变成一份结构化的视频文案总结。
 > An Agent Skill that turns a Douyin (TikTok CN) share link into a structured transcript summary.
 
