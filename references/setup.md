@@ -19,7 +19,7 @@ cd <项目>/webapp
 pip install fastapi "uvicorn[standard]" httpx
 
 # 链接提取所需（要用提取就必须装）
-pip install dashscope playwright
+pip install "dashscope>=1.27" playwright
 playwright install chromium      # 下载 playwright 的浏览器内核
 ```
 
@@ -84,6 +84,20 @@ PY
 cd <项目>/webapp
 python app.py
 # → 服务跑在 <服务地址>（默认 http://127.0.0.1:8900）
+```
+
+需要常驻就启动成后台进程，并把日志落盘（不落盘时排障看不到 ASR 报错码）：
+
+```bash
+cd <项目>/webapp
+nohup <项目>/.venv/bin/python app.py >> ~/Library/Logs/traffic-compass.log 2>&1 &
+tail -f ~/Library/Logs/traffic-compass.log
+```
+
+改过 `extract.py` 等代码后**必须重启进程**（`uvicorn.run` 没开 reload，进程里缓存的是旧模块）：
+
+```bash
+pkill -f "webapp.*app.py"
 ```
 
 验证：

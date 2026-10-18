@@ -27,7 +27,7 @@
 
 在装本 Skill 之前，请先在本机把 Traffic Compass 服务部署好（大致步骤，完整版见本项目 `references/setup.md`）：
 
-- 安装依赖：`fastapi`、`uvicorn`、`httpx`、`dashscope`、`playwright`（+ `playwright install chromium`），以及 `ffmpeg`
+- 安装依赖：`fastapi`、`uvicorn`、`httpx`、`dashscope>=1.27`、`playwright`（+ `playwright install chromium`），以及 `ffmpeg`
 - 配置阿里云百炼 ASR 密钥（`BAILIAN_KEY`）
 - 授权抖音登录态 Cookie（`douyin_cookies.json`）
 - 启动服务（默认 `http://127.0.0.1:8900`）
@@ -91,7 +91,7 @@ video-transcript/
 ├── SKILL.md               # 核心：触发条件 + 提取 + 总结 + 保存
 └── references/
     ├── setup.md           # 首次安装与配置（含抖音 Cookie 授权脚本）
-    └── fallback.md        # 故障排查 + B 站搬运兜底链路
+    └── fallback.md        # 故障排查 + ASR 报错码含义 + 已知不可行路径
 ```
 
 > 采用**渐进式披露**：`SKILL.md` 只保留核心工作流（触发即加载），安装与排错细节按需从 `references/` 读取——日常使用不会为用不到的内容付费。
@@ -104,7 +104,7 @@ video-transcript/
 多半是服务没跑起来、或抖音 Cookie 过期。先确认 `<服务地址>` 能访问，再对照 `references/fallback.md` 排查。
 
 **Q：抖音视频已下架，抓不到怎么办？**
-若你有 B 站搬运链接，可走兜底链路（见 `references/fallback.md`）。
+先向用户要其他可访问的来源。注意：百炼批量识别只接受公网 `http(s)` 直链，本地音频/上传文件的几种写法实测都会报 `DECODE_ERROR` 或 `SERVER_ERROR`（详见 `references/fallback.md`），不要假设「下载下来就能转」。
 
 **Q：需要 DeepSeek Key 吗？**
 不需要。本 Skill 只做提取 + 总结，不依赖 Traffic Compass 核心审核所用的 DeepSeek。
